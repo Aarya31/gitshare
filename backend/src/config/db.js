@@ -10,7 +10,11 @@ async function connectDB() {
     console.log('No valid MONGODB_URI found in env (must start with mongodb:// or mongodb+srv://). Spinning up mongodb-memory-server as fallback...');
     try {
       const { MongoMemoryServer } = require('mongodb-memory-server');
-      const mongoServer = await MongoMemoryServer.create();
+      const mongoServer = await MongoMemoryServer.create({
+        binary: {
+          version: '7.0.8' // Force MongoDB v7, compatible with Render's Debian 12 environment
+        }
+      });
       mongoUri = mongoServer.getUri();
       console.log(`In-memory MongoDB server is running at: ${mongoUri}`);
       
