@@ -95,9 +95,9 @@ Open your browser and navigate to **`http://localhost:5173`**.
 ---
 
 ## 🔑 Demo Access Credentials
-On startup, if the database is empty, the server automatically seeds the following test accounts:
+On startup, if the database is empty, the server automatically seeds a test account:
 *   **Regular User:** Username: `gitshare_user` | Password: `user123`
-*   **Admin Moderator:** Username: `admin` | Password: `admin123`
+*   *(Note: An admin moderator account is also seeded for system administration, but its credentials should be configured privately in production).*
 
 ---
 
