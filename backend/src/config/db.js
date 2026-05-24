@@ -2,9 +2,12 @@ const mongoose = require('mongoose');
 
 async function connectDB() {
   let mongoUri = process.env.MONGODB_URI;
+  
+  // Robust check: Ensure the connection string starts with valid MongoDB schemes
+  const hasValidScheme = mongoUri && (mongoUri.trim().startsWith('mongodb://') || mongoUri.trim().startsWith('mongodb+srv://'));
 
-  if (!mongoUri) {
-    console.log('No MONGODB_URI found in env. Spinning up mongodb-memory-server as fallback...');
+  if (!hasValidScheme) {
+    console.log('No valid MONGODB_URI found in env (must start with mongodb:// or mongodb+srv://). Spinning up mongodb-memory-server as fallback...');
     try {
       const { MongoMemoryServer } = require('mongodb-memory-server');
       const mongoServer = await MongoMemoryServer.create();
@@ -20,7 +23,7 @@ async function connectDB() {
   }
 
   try {
-    await mongoose.connect(mongoUri);
+    await mongoose.connect(mongoUri.trim());
     console.log('MongoDB connection established successfully.');
   } catch (err) {
     console.error('MongoDB connection error:', err);
