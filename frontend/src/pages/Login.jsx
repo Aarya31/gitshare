@@ -106,9 +106,8 @@ export default function Login() {
       
       {/* Demo Credentials Alert */}
       <div className="mt-4 p-3 bg-[#388bfd]/10 border border-[#388bfd]/30 rounded text-xs text-[#58a6ff] max-w-sm text-center">
-        <p className="font-semibold mb-1">Demo Accounts Ready:</p>
+        <p className="font-semibold mb-1">Demo Account Ready:</p>
         <p>User: <span className="underline font-mono">gitshare_user</span> / Pass: <span className="underline font-mono">user123</span></p>
-        <p>Admin: <span className="underline font-mono">admin</span> / Pass: <span className="underline font-mono">admin123</span></p>
       </div>
     </div>
   );
