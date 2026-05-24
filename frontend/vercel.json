@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://YOUR_BACKEND_URL_HERE.onrender.com/api/:path*"
+      "destination": "https://gitshare-backend-gwhg.onrender.com/api/:path*"
     },
     {
       "source": "/uploads/:path*",
-      "destination": "https://YOUR_BACKEND_URL_HERE.onrender.com/uploads/:path*"
+      "destination": "https://gitshare-backend-gwhg.onrender.com/uploads/:path*"
     },
     {
       "source": "/(.*)",
